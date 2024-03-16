@@ -14,7 +14,7 @@ def lambda_handler(event, context):
 
     # Use boto3 to get the CSV file from S3
     s3_client = boto3.client('s3')
-    response = s3_client.get_object(Bucket=srcbucket, Key=srckey)
+    response = s3_client.get_object(Bucket=srcbucket, Key=srckey, )
     file_content = response["Body"].read().decode('utf-8')
 
     # Read the content using pandas
