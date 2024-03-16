@@ -18,7 +18,7 @@ def lambda_handler(event, context):
     file_content = response["Body"].read().decode('utf-8')
 
     # Read the content using pandas
-    data = pd.read_csv(StringIO(file_content))
+    data = pd.read_json(StringIO(file_content))
     print(data)
     #Filter records where status is "delivered"
     delivered_df = data[data['status'] == 'delivered']
