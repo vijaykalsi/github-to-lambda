@@ -9,6 +9,8 @@ def lambda_handler(event, context):
     srckey = event['Records'][0]['s3']['object']['key']
     tgtbucket='doordash-target-zn-vj'
     tgtkey='2024-03-09-processed_output.json'
+    print('srcbucket: ', srcbucket)
+    print('srckey: ', srckey)
 
     # Use boto3 to get the CSV file from S3
     s3_client = boto3.client('s3')
