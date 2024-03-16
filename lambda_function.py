@@ -27,7 +27,5 @@ def lambda_handler(event, context):
     # write filtered data frame to target S3
     filetoupload=StringIO()
     delivered_df.to_json(filetoupload)
-
     response = s3_client.put_object(Body=filetoupload.getvalue(), Bucket=tgtbucket, Key=tgtkey, )
     print(response)
-
